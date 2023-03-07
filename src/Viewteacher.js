@@ -11,10 +11,9 @@ function Viewteacher() {
   }, [])
 
   const fetchdata = async () => {
-    const res = JSON.parse(localStorage.getItem('teachers'))
-    const selectedTeacher = res.find((teacher)=> teacher.id == id)
-    setUser(selectedTeacher)
-}
+    const res = await axios.get(`https://6406217d40597b65de4b2804.mockapi.io/teachers/${id}`)
+    setUser(res.data)
+  }
   return (
     <div>
       <main id="main" className="main">

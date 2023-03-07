@@ -8,9 +8,8 @@ function Dashboard() {
     }, [])
   
     const fetchdata = async () => {
-        const res = localStorage.getItem('students')
-        const studentsArray = JSON.parse(res)
-        setStudents(studentsArray)
+      const students = await axios.get("https://6406217d40597b65de4b2804.mockapi.io/students");
+      setStudents(students.data)
     }
     return (
         <div>
